@@ -1,5 +1,5 @@
 module Chatpdf
-  module API
+  module Api
     class FileUpload < Base
       def add_pdf_via_upload(file_path)
         file = File.new(file_path)
