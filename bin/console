@@ -1,8 +1,11 @@
-#!/usr/bin/env bash
-set -euo pipefail
-IFS=$'\n\t'
-set -vx
+#!/usr/bin/env ruby
+# frozen_string_literal: true
 
-bundle install
+require "bundler/setup"
+require "chatpdf"
 
-# Do any other automated setup that you need to do here
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+require "irb"
+IRB.start(__FILE__)
