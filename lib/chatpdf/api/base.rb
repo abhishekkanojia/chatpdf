@@ -3,8 +3,8 @@ module Chatpdf
     class Base
       attr_reader :client
       
-      def initialize
-        @client = Chatpdf::Client.new
+      def initialize(client)
+        @client = client
       end
     end
   end

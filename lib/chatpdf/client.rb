@@ -6,6 +6,10 @@ module Chatpdf
       @api_key = api_key
     end
 
+    def file_upload(file_path)
+      Chatpdf::Api::FileUpload.new(self).add_pdf_via_upload(file_path)
+    end
+
     def request(path, options = {})
       HTTParty.post(
         BASE_URL + path,
