@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.homepage    = "https://rubygems.org/gems/chatpdf"
   s.license       = "MIT"
   
-  s.add_dependency "httparty"
+  s.add_dependency "httparty", '~> 0.23.1'
 end
