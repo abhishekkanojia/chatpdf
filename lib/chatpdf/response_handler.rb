@@ -4,12 +4,8 @@ module Chatpdf
       @response = response
     end
 
-    def success?
-      @response.code == 200
-    end
-
     def response_body
-      JSON.parse(@response.body)
+      @response
     end
   end
 end

@@ -1,6 +1,8 @@
+require 'httparty'
+
 module Chatpdf
   class Client
-    BASE_URL = "https://api.chatpdf.com/".freeze
+    BASE_URL = "https://api.chatpdf.com/v1".freeze
     
     def initialize(api_key)
       @api_key = api_key
@@ -13,7 +15,7 @@ module Chatpdf
     def request(path, options = {})
       HTTParty.post(
         BASE_URL + path,
-        headers: { "Authorization" => "Bearer #{@api_key}" },
+        headers: { "x-api-key" => @api_key },
         body: options[:body]
       )
     end

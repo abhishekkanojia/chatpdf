@@ -9,7 +9,7 @@ module Chatpdf
           }
         })
 
-        ResponseHandler.new(response)
+        ResponseHandler.new(response).response_body
       end
     end
   end
