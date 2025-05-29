@@ -19,6 +19,13 @@ module Chatpdf
       )
     end
 
+    def chat_with_reference(source_id, messages)
+      Chatpdf::Api::Chat.new(self).chat_with_reference(
+        source_id,
+        messages
+      )
+    end
+
     def chat_stream(messages)
       Chatpdf::Api::ChatStream.new(self).chat_stream(messages)
     end
