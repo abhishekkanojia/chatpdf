@@ -1,20 +1,15 @@
 module Chatpdf
   class Message
-    def initialize(content, role: "user", stream: false)
+    def initialize(content, role: "user")
       @content = content
       @role = role
-      @stream = stream
     end
 
     def to_h
-      default = {
+      {
         role: @role,
         content: @content,
       }
-      
-      default.merge(stream: @stream) if @stream
-
-      default
     end
   end
 end
