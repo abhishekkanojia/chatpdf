@@ -6,6 +6,7 @@ require 'chatpdf/version'
 require 'chatpdf/api/base'
 require 'chatpdf/api/file_upload'
 require 'chatpdf/api/chat'
+require 'chatpdf/api/delete_source'
 require 'chatpdf/message'
 
 require 'chatpdf/response_handler'
