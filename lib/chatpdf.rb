@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'chatpdf/concerns/actionable'
+
 require 'chatpdf/client'
 require 'chatpdf/version'
 
