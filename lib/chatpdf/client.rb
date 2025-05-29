@@ -37,13 +37,17 @@ module Chatpdf
     def request(path, options = {})
       HTTParty.post(
         endpoint(path),
-        headers: { "x-api-key" => @api_key, "Content-Type" => "application/json" },
+        headers: headers,
         body: options[:body].to_json
       )
     end
 
     def endpoint(path)
       BASE_URL + path
+    end
+
+    def headers
+      { "x-api-key" => @api_key, "Content-Type" => "application/json" }
     end
   end
 end

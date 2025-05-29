@@ -7,7 +7,7 @@ module Chatpdf
     class ChatStream < Chatpdf::Api::Base
       def chat_stream(source_id, messages = [])
         uri = URI.parse(client.endpoint("/chats/message"))
-        request = Net::HTTP::Post.new(uri)
+        request = Net::HTTP::Post.new(uri, client.headers)
         request.body = {
           sourceId: source_id,
           messages: messages,
@@ -18,6 +18,7 @@ module Chatpdf
           http.request(request) do |response|
             response.read_body do |chunk|
               puts chunk
+              yield chunk
             end
           end
         end
