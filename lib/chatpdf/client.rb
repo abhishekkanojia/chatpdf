@@ -44,7 +44,7 @@ module Chatpdf
       )
     end
 
-    def upload_file(file_path)
+    def upload_file(file_path, options = {})
       HTTParty.post(
         endpoint: endpoint(path),
         headers: { "x-api-key" => @api_key },
