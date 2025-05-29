@@ -5,7 +5,7 @@ require 'json'
 module Chatpdf
   module Api
     class ChatStream < Chatpdf::Api::Base
-      def chat_stream(source_id, messages = [], referenceSources: true)
+      def chat_stream(source_id, messages = [])
         uri = URI.parse(client.endpoint("/chats/message"))
         request = Net::HTTP::Post.new(uri)
         request.body = {
