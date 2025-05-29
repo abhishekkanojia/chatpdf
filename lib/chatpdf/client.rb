@@ -16,12 +16,20 @@ module Chatpdf
       Chatpdf::Api::Chat.new(self).chat(messages)
     end
 
+    def chat_stream(messages)
+      Chatpdf::Api::ChatStream.new(self).chat_stream(messages)
+    end
+
     def request(path, options = {})
       HTTParty.post(
-        BASE_URL + path,
+        endpoint(path),
         headers: { "x-api-key" => @api_key },
         body: options[:body]
       )
+    end
+
+    def endpoint(path)
+      BASE_URL + path
     end
   end
 end
