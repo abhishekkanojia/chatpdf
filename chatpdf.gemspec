@@ -15,6 +15,8 @@ Gem::Specification.new do |s|
   s.executables = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
   s.homepage    = "https://rubygems.org/gems/chatpdf"
   s.license       = "MIT"
+
+  s.add_development_dependency "rspec", "~> 3.12.0"
   
   s.add_dependency "httparty", '~> 0.23.1'
 end
