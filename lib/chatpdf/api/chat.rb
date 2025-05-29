@@ -4,6 +4,7 @@ module Chatpdf
       def chat(source_id, messages = [], reference: true)
         response = client.request("/chats/message", {
           body: {
+            referenceSources: reference,
             sourceId: source_id,
             messages: messages
           }
