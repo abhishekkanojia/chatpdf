@@ -1,10 +1,9 @@
 module Chatpdf
   module Api
     class Chat < Chatpdf::Api::Base
-      def chat(source_id, messages = [], reference: true)
+      def chat(source_id, messages = [])
         response = client.request("/chats/message", {
           body: {
-            referenceSources: reference,
             sourceId: source_id,
             messages: messages
           }

@@ -12,11 +12,10 @@ module Chatpdf
       Chatpdf::Api::FileUpload.new(self).add_pdf_via_upload(file_path)
     end
 
-    def chat(source_id, messages, reference: true)
+    def chat(source_id, messages)
       Chatpdf::Api::Chat.new(self).chat(
         source_id,
-        messages,
-        reference: reference
+        messages
       )
     end
 
