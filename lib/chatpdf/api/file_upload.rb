@@ -8,6 +8,7 @@ module Chatpdf
             file: file
           }
         })
+        file.close
 
         ResponseHandler.new(response).response_body
       end
