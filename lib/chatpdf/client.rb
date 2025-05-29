@@ -8,7 +8,7 @@ module Chatpdf
       @api_key = api_key
     end
 
-    def file_upload(file_path)
+    def add_pdf(file_path)
       Chatpdf::Api::FileUpload.new(self).add_pdf_via_upload(file_path)
     end
 
@@ -41,6 +41,14 @@ module Chatpdf
         endpoint(path),
         headers: headers,
         body: options[:body].to_json
+      )
+    end
+
+    def upload_file(file_path)
+      HTTParty.post(
+        endpoint: endpoint(path),
+        headers: { "x-api-key" => @api_key },
+        body: options[:body]
       )
     end
 
