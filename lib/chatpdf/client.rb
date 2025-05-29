@@ -31,7 +31,9 @@ module Chatpdf
     end
 
     def chat_stream(source_id,messages)
-      yield Chatpdf::Api::ChatStream.new(self).chat_stream(source_id, messages)
+      Chatpdf::Api::ChatStream.new(self).chat_stream(source_id, messages) do |chunk|
+        yield chunk
+      end
     end
 
     def request(path, options = {})

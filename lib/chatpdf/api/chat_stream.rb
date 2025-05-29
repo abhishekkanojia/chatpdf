@@ -17,7 +17,6 @@ module Chatpdf
         Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
           http.request(request) do |response|
             response.read_body do |chunk|
-              puts chunk
               yield chunk
             end
           end
