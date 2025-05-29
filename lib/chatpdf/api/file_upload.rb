@@ -12,6 +12,16 @@ module Chatpdf
 
         ResponseHandler.new(response).response_body
       end
+
+      def add_pdf_via_url(url)
+        response = client.request("/sources/add-url", {
+          body: {
+            url: url
+          }
+        })
+        
+        ResponseHandler.new(response).response_body
+      end
     end
   end
 end
