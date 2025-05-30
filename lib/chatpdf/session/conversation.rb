@@ -39,7 +39,7 @@ module Chatpdf
 
       def add_pdf
         if file_path
-          response = client.add_pdf_via_upload(file_path)
+          response = client.add_pdf(file_path)
         elsif url
           response = client.add_pdf_via_url(url)
         end
