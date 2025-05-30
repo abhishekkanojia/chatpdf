@@ -17,7 +17,7 @@ module Chatpdf
         question = Question.new(question)
         @questions << question
 
-        response = client.chat(source_id, [Chat::Message.new("#{question}").to_h])
+        response = client.chat(source_id, [Chatpdf::Message.new("#{question}").to_h])
         question.answer = Answer.new(response["content"])
         
         question.answer.to_s
