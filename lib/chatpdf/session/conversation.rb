@@ -7,7 +7,6 @@ module Chatpdf
         @file_path = file_path
         @url = url
         @questions = []
-        @answers = []
         @source_id = nil
       end
 
@@ -22,6 +21,14 @@ module Chatpdf
         question.answer = Answer.new(response["content"])
         
         question.answer.to_s
+      end
+
+      def questions
+        @questions.map(&:to_s)
+      end
+
+      def answers
+        questions.map { |question| question.answer.to_s }
       end
 
       private
