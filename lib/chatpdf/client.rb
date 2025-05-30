@@ -6,8 +6,8 @@ module Chatpdf
     
     include Chatpdf::Actionable
     
-    def initialize(api_key)
-      @api_key = api_key
+    def initialize
+      @api_key = Chatpdf.configuration.api_key
     end
 
     def request(path, options = {})

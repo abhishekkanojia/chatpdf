@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'chatpdf/configuration'
 require 'chatpdf/concerns/actionable'
 
 require 'chatpdf/client'
@@ -18,6 +19,12 @@ Gem.find_files("chatpdf/**/*.rb").each { |path| require_relative path }
 
 
 module Chatpdf
-  class Error < StandardError; end
-  # Your code goes here...
+  class << self
+    attr_accessor :configuration
+  end
+
+  def self.configure
+    self.configuration ||= Configuration.new
+    yield(configuration)
+  end
 end
