@@ -1,7 +1,7 @@
 module Chatpdf
   module Session
     class Conversation
-      attr_reader :file_path, :url, :source_id
+      attr_reader :file_path, :url, :source_id, :questions
 
       def initialize(file_path: nil, url: nil)
         @file_path = file_path
@@ -23,14 +23,6 @@ module Chatpdf
         question.answer.to_s
       end
 
-      def questions
-        @questions.map(&:to_s)
-      end
-
-      def answers
-        questions.map { |question| question.answer.to_s }
-      end
-
       private
 
       def client
@@ -44,7 +36,7 @@ module Chatpdf
           response = client.add_pdf_via_url(url)
         end
 
-        @source_id = response["source_id"]
+        @source_id = response["sourceId"]
         @source_id
       end
 
