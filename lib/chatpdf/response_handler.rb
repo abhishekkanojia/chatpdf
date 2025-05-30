@@ -4,8 +4,12 @@ module Chatpdf
       @response = response
     end
 
+    def success?
+      @response.ok?
+    end
+
     def response_body
-      @response
+      @response.parsed_response
     end
   end
 end
