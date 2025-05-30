@@ -1,7 +1,7 @@
 module Chatpdf
   module Session
     class Conversation
-      attr_reader :file_path, :url
+      attr_reader :file_path, :url, :source_id
 
       def initialize(file_path: nil, url: nil)
         @file_path = file_path
