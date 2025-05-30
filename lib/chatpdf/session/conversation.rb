@@ -3,11 +3,11 @@ module Chatpdf
     class Conversation
       attr_reader :file_path, :url, :source_id, :questions
 
-      def initialize(file_path: nil, url: nil)
+      def initialize(file_path: nil, url: nil, source_id: nil)
         @file_path = file_path
         @url = url
         @questions = []
-        @source_id = nil
+        @source_id = source_id
       end
 
       def ask(question)
@@ -41,8 +41,12 @@ module Chatpdf
       end
 
       def validate_params
-        if @file_path.nil? && @url.nil?
-          raise "Either file_path or url must be provided"
+        if !@source_id.nil? && (!@file_path.nil? || !@url.nil?)
+          raise Chatpdf::InvalidSessionInitialization, "Invalid parameters: source_id cannot be provided if file_path or url is provided"
+        end
+
+        if @file_path.nil? && @url.nil? && @source_id.nil?
+          raise Chatpdf::InvalidSessionInitialization, "Either file_path or url or source_id must be provided"
         end
       end
     end
