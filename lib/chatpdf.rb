@@ -13,6 +13,7 @@ require 'chatpdf/api/delete_source'
 require 'chatpdf/api/chat_stream'
 
 require 'chatpdf/exceptions/invalid_session_initialization'
+require 'chatpdf/exceptions/invalid_configuration'
 
 require 'chatpdf/session/question'
 require 'chatpdf/session/answer'
