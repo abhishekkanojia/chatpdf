@@ -20,6 +20,14 @@ module Chatpdf
       def references
         @references.map { |reference| reference[PAGE_NUMBER_KEY] }
       end
+
+      def serialise
+        {
+          id: id,
+          content: content,
+          references: references
+        }
+      end
     end
   end
 end

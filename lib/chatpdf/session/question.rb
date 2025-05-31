@@ -16,6 +16,14 @@ module Chatpdf
       def to_s
         @question
       end
+
+      def serialise
+        {
+          id: id,
+          question: question,
+          answer: answer.serialise
+        }
+      end
     end
   end
 end
