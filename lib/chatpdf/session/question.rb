@@ -1,5 +1,3 @@
-require 'random/formatter'
-
 module Chatpdf
   module Session
     class Question
