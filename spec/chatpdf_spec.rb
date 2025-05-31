@@ -5,7 +5,7 @@ RSpec.describe Chatpdf do
     expect(Chatpdf::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it 'has version number' do
+    expect(Chatpdf::VERSION).to eq('1.0.0')
   end
 end
