@@ -7,7 +7,7 @@ module Chatpdf
     include Chatpdf::Actionable
     
     def initialize
-      @api_key = Chatpdf.configuration.api_key
+      @api_key = api_key_or_raise
     end
 
     def request(path, options = {})
@@ -32,6 +32,10 @@ module Chatpdf
 
     def headers
       { "x-api-key" => @api_key, "Content-Type" => "application/json" }
+    end
+
+    def api_key_or_raise
+      Chatpdf.configuration.api_key || raise(Chatpdf::InvalidConfiguration, "API key is not set")
     end
   end
 end
