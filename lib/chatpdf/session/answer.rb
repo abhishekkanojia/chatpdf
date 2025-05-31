@@ -3,10 +3,11 @@ module Chatpdf
     class Answer
       @@_id = 0
 
-      attr_reader :id, :content
+      attr_reader :id, :content, :references
 
-      def initialize(content)
-        @content = content
+      def initialize(response = {})
+        @content = response["content"]
+        @references = response["references"]
         @@_id = Random.uuid
         @id = @@_id
       end

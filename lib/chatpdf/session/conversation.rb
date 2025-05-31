@@ -10,16 +10,18 @@ module Chatpdf
         @source_id = source_id
       end
 
-      def ask(question)
+      def ask(question, reference: false)
         validate_params
         add_pdf if source_id.nil?
 
         question = Question.new(question)
         @questions << question
 
-        response = client.chat(source_id, [Chatpdf::Message.new("#{question}").to_h])
-        question.answer = Answer.new(response["content"])
-        
+        response = client.chat(source_id, [Chatpdf::Message.new("#{question}").to_h]) unless reference
+        response = client.chat_with_reference(source_id, [Chatpdf::Message.new("#{question}").to_h]) if reference
+
+        question.answer = Answer.new(response)
+
         question.answer.to_s
       end
 
