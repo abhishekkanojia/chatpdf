@@ -25,7 +25,7 @@ module Chatpdf
         question.answer.to_s
       end
 
-      def delete_source(source_id)
+      def delete_source
         client.delete_source([source_id])
       end
 
