@@ -27,7 +27,7 @@ module Chatpdf
         Chatpdf::Api::DeleteSource.new(self).delete_source(source_ids)
       end
 
-      def chat_stream(source_id,messages)
+      def chat_stream(source_id, messages)
         Chatpdf::Api::ChatStream.new(self).chat_stream(source_id, messages) do |chunk|
           yield chunk
         end
