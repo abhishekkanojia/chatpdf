@@ -18,6 +18,8 @@ module Chatpdf
       end
 
       def references
+        return [] if @references.nil?
+        
         @references.map { |reference| reference[PAGE_NUMBER_KEY] }
       end
 
