@@ -131,6 +131,94 @@ client.delete_source([source_ids]) # array of source_ids to be deleted
 nil
 ```
 
+### Extended Feature of Gem
+
+If you want to use easily use the chatpdf gem, extended classes will help you achieve so.
+
+### Creating a Chat Session
+
+```ruby
+file_path = '/path/to/file.pdf'
+
+# OR
+
+file_url = 'https://example.com/path/to/file.pdf'
+
+session = Chatpdf::Session::Conversation.new(file_path: file_path)
+
+# OR
+
+session = Chatpdf::Session::Conversation.new(file_url: file_url)
+
+# OR
+
+session = Chatpdf::Session::Conversation.new(source_id: source_id_of_already_uploaded_file)
+```
+> IMPORTANT: source_id cannot be provided if File path or File Url is provided. This will result in an error `Chatpdf::InvalidSessionInitialization`
+
+
+### Asking Questions
+
+```ruby
+session.ask('Your question here')
+=> "Your answer here"
+```
+
+With Reference
+
+```ruby
+session.ask('Your question here', references: true)
+=> "Your answer here"
+```
+
+
+### Accessing The Asked Questions
+Good thing about session is that it stores the asked questions in the instance itself, at a later point while using sesion, if you want to access the questions you have asked. You can do
+
+```ruby
+session.questions.map(&:to_s)
+=>
+["Your question here"]
+```
+
+#### Accessing The Asked Question's Answers
+
+```ruby
+session.questions.map { |question| question.answer.to_s }
+=>
+["Your answer here"]
+```
+
+### Serialise Questions
+```ruby
+session.questions.map(&:serialise)
+=>
+[{:id=>"0185bb65-c150-41c5-81a1-5f7f0532d8f2",
+  :question=>"Your Question Here",
+  :answer=>
+   {:id=>"e68c2463-88ed-4bcc-b3a8-00990d4c6cc8",
+    :content=>"Your Answer here",
+    :references=>[]}}]
+```
+
+### Serialise the Session
+
+```ruby
+session.serialise
+=>
+{:file_path=>"/Users/abhishekkanojia/Downloads/NAB-AGM.pdf",
+ :url=>nil,
+ :source_id=>"src_vSixL2t5LY4fNLF4iGZ8f",
+ :questions=>
+  [{:id=>"0185bb65-c150-41c5-81a1-5f7f0532d8f2",
+    :question=>"Your Question Here",
+    :answer=>
+     {:id=>"e68c2463-88ed-4bcc-b3a8-00990d4c6cc8",
+      :content=>
+       "Your Answer Here",
+      :references=>[]}}]}
+```
+
 ## Error Handling
 
 The gem includes several error classes:
