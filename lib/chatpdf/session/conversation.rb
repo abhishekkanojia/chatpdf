@@ -8,10 +8,10 @@ module Chatpdf
         @url = url
         @questions = []
         @source_id = source_id
+        validate_params
       end
 
       def ask(question, references: false)
-        validate_params
         add_pdf if source_id.nil?
 
         question = Question.new(question)
@@ -45,6 +45,8 @@ module Chatpdf
           response = client.add_pdf(file_path)
         elsif url
           response = client.add_pdf_via_url(url)
+        else
+          raise Chatpdf::InvalidSessionInitialization, "Either file_path or url or source_id must be provided"
         end
 
         @source_id = response["sourceId"]
