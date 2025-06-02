@@ -26,6 +26,8 @@ module Chatpdf
       end
 
       def delete_source
+        return unless source_id
+
         client.delete_source([source_id])
       end
 
