@@ -25,6 +25,10 @@ module Chatpdf
         question.answer.to_s
       end
 
+      def delete_source(source_id)
+        client.delete_source([source_id])
+      end
+
       def serialise
         {
           file_path: file_path,
