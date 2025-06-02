@@ -24,6 +24,8 @@ require 'chatpdf/response_handler'
 
 Gem.find_files("chatpdf/**/*.rb").each { |path| require_relative path }
 
+require "chatpdf/railtie" if defined?(Rails)
+
 
 module Chatpdf
   class << self
