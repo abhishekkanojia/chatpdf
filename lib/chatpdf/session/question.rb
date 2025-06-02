@@ -20,7 +20,7 @@ module Chatpdf
       def serialise
         {
           id: id,
-          question: question,
+          question: @question,
           answer: answer.serialise
         }
       end
