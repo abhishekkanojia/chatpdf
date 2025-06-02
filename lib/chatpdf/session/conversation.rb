@@ -25,6 +25,15 @@ module Chatpdf
         question.answer.to_s
       end
 
+      def serialise
+        {
+          file_path: file_path,
+          url: url,
+          source_id: source_id,
+          questions: questions.map(&:serialise)
+        }
+      end
+
       private
 
       def client
