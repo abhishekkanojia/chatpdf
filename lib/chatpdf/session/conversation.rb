@@ -47,7 +47,7 @@ module Chatpdf
           response = client.add_pdf_via_url(url)
         end
 
-        @source_id = Chatpdf::ResponseHandler.new(response).response_body["sourceId"]
+        @source_id = response["sourceId"]
         @source_id
       end
 
