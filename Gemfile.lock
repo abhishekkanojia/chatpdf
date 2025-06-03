@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chatpdf (1.0.1)
+    chatpdf (1.0.2)
       httparty (~> 0.23.1)
 
 GEM
