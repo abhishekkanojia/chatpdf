@@ -35,6 +35,7 @@ module Chatpdf
     end
 
     def api_key_or_raise
+      raise Chatpdf::InvalidConfiguration, "Chatpdf is not configured" if Chatpdf.configuration.nil?
       Chatpdf.configuration.api_key || raise(Chatpdf::InvalidConfiguration, "API key is not set")
     end
   end
