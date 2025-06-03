@@ -23,8 +23,11 @@ require 'chatpdf/message'
 require 'chatpdf/response_handler'
 
 Gem.find_files("chatpdf/**/*.rb").each { |path| require_relative path }
-
-require "chatpdf/railtie" if defined?(Rails::Railtie)
+begin
+  require "chatpdf/railtie" if defined?(Rails::Railtie)
+rescue LoadError
+  # Rails is not present
+end
 
 
 module Chatpdf
