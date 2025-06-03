@@ -6,6 +6,6 @@ RSpec.describe Chatpdf do
   end
 
   it 'has version number' do
-    expect(Chatpdf::VERSION).to eq('1.0.1')
+    expect(Chatpdf::VERSION).to eq('1.0.2')
   end
 end
