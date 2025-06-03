@@ -6,16 +6,22 @@ on:
       - 'v*'
 
 jobs:
-  release:
+  push:
+    name: Push gem to RubyGems.org
     runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write 
+      contents: write
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: ruby/setup-ruby@v1
+      # Set up
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
-      - run: gem install bundler
-      - run: bundle install
-      - run: gem build chatpdf.gemspec
-      - run: gem push chatpdf-*.gem
-        env:
-          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+          bundler-cache: true
+          ruby-version: ruby
+
+      # Release
+      - uses: rubygems/release-gem@v1
