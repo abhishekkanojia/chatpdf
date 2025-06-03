@@ -9,7 +9,8 @@ Gem::Specification.new do |s|
   s.summary     = "ChatPDF ruby gem around the ChatPDF API"
   s.description = "Chatpdf is a ruby gem around the ChatPDF API"
   s.authors     = ["Abhishek Kanojia"]
-  s.email       = "abhishek.kanojia3193@gmail.com" 
+  s.email       = "abhishekka3193@gmail.com"
+  s.homepage    = "https://github.com/abhishekkanojia/chatpdf"
   s.files       = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   s.bindir      = "exe"
   s.executables = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
