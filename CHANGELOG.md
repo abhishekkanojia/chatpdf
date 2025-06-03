@@ -1,6 +1,9 @@
 ## [Unreleased]
 - None
 
+## [1.0.1] - 2025-06-03
+- Bump version 1.0.1
+
 ## [1.0.0] - 2025-06-03
 - Basic Chatpdf wrapper With Conversation Manager.
 
