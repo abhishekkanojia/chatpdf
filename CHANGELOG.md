@@ -1,6 +1,10 @@
 ## [Unreleased]
 - None
 
+## [1.0.2] - 2025-06-03
+- Allow working without Rails.
+- Raise error if api key is not configured.
+
 ## [1.0.1] - 2025-06-03
 - Bump version 1.0.1
 
