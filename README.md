@@ -36,7 +36,7 @@ This will generate the following file:
 
 ```ruby
 # config/initializers/chatpdf_initializer.rb
-Chatpdf.config do |config|
+Chatpdf.configure do |config|
   config.api_key = ENV['CHATPDF_API_KEY']
 end
 ```
