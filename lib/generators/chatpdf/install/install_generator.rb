@@ -6,7 +6,7 @@ module Chatpdf
 
       def create_initializer_file
         create_file "config/initializers/chatpdf_initializer.rb", <<~FILE
-          Chatpdf.config do |config|
+          Chatpdf.configure do |config|
             config.api_key = ENV['CHATPDF_API_KEY']
           end
         FILE
