@@ -1,6 +1,9 @@
 ## [Unreleased]
 - None
 
+## [1.0.5] - 2026-01-29
+- Fix intializer generator
+
 ## [1.0.3] - 2025-06-03
 - Update Gem details
 
